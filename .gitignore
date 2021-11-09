@@ -1,0 +1,26 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+
+# Compiled binary addons (http://nodejs.org/api/addons.html)
+build/Release
+build/contracts
+build
+
+# Dependency directories
+node_modules/
+jspm_packages/
+
+
+# Optional npm cache directory
+.npm
+
+# dotenv environment variables file
+.env
+
+~$*.pptx
+.~lock.system_framework.docx#

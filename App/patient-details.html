@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Patient Details</title>
+    <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            padding-top: 40px;
+            padding-bottom: 40px;
+            background-color: #f5f5f5;
+            font-family: 'Spartan';
+        }
+
+        .h3 {
+            font-weight: 700;
+        }
+
+        .bg-reward {
+            background: #0E1030;
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -2px rgb(0 0 0 / 5%);
+            border-radius: 20px 20px 0 0 ;
+            overflow: hidden;
+        }
+
+        .nav-tabs .nav-item.show .nav-link,
+        .nav-tabs .nav-link.active {
+            color: #efd3c1;
+            background-color: #111433;
+            border-color: #dee2e6 #dee2e6 #fff;
+        }
+
+        .nav-link {
+            color: #121534;
+        }
+        tbody tr td {
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <div class="text-center p-5">
+                    <h1 class="h3 mb-3">Kiran Kola Patient Management</h1>
+                    <h6>Everyone is Rewarded</h6>
+                </div>
+            </div>
+            <div class="col-lg-8 offset-lg-2 bg-white">
+                <main class="form-signin px-3 py-4">
+                    <h5 class="mb-3">Admin Manager</h5>
+                    <ul class="nav nav-tabs  nav-fill" id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="patient-tab" data-bs-toggle="tab"
+                                data-bs-target="#patient" type="button" role="tab" aria-controls="patient"
+                                aria-selected="true">Patient Medical Record</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="requestor-tab" data-bs-toggle="tab" data-bs-target="#requestor"
+                                type="button" role="tab" aria-controls="requestor" aria-selected="false">Patient Data Requestor</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active py-3" id="patient" role="tabpanel"
+                            aria-labelledby="patient-tab">
+                            <form>
+                                <div class="row mb-3">
+                                    <div class="col-lg-6">
+                                        <label for="medical-records" class="form-label">Medical Record Type</label>
+                                        <select class="form-select" aria-label="Default select example">
+                                            <option value="1">Scan</option>
+                                            <option value="2">Blood Report</option>
+                                            <option value="3">Urine Report </option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <label for="age" class="form-label">Date</label>
+                                        <input type="date" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-lg-6">
+                                        <label for="region" class="form-label">Price</label>
+                                        <input type="text" class="form-control" placeholder="Enter price">
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <label for="address" class="form-label">Upload Report</label>
+                                        <input type="file" class="form-control">
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-sm btn-primary">Submit</button>
+                            </form>
+                        </div>
+                        <div class="tab-pane fade py-3" id="requestor" role="tabpanel" aria-labelledby="requestor-tab">
+                            <form>
+                                <div class="row mb-3">
+                                    <div class="col-lg-12">
+                                        <label for="requestor-type" class="form-label">Search</label>
+                                        <div class="row">
+                                            <div class="col-6"><input type="date" class="form-control"></div>
+                                            <div class="col-6">
+                                                <select class="form-select" aria-label="Default select example">
+                                                    <option value="1">Scan</option>
+                                                    <option value="2">Blood Report</option>
+                                                    <option value="3">Urine Report </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-lg-12">
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Medical Record Type</th>
+                                                    <th scope="col">Date</th>
+                                                    <th scope="col">Price</th>
+                                                    <th scope="col">Report View</th>
+                                                    <th scope="col">Document link</th>
+                                                    <th scope="col"></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Blood Report</td>
+                                                    <td>01/06/2021</td>
+                                                    <td>Rs 2000.00</td>
+                                                    <td><img src="" alt=""></td>
+                                                    <td><a href="#">Document Link</a></td>
+                                                    <td><button type="submit" class="btn btn-sm btn-warning">Buy
+                                                            Now</button></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Blood Report</td>
+                                                    <td>01/06/2021</td>
+                                                    <td>Rs 2000.00</td>
+                                                    <td><img src="" alt=""></td>
+                                                    <td><a href="#">Document Link</a></td>
+                                                    <td><button type="submit" class="btn btn-sm btn-warning">Buy
+                                                            Now</button></td>
+                                                </tr>
+                                            </tbody>
+
+                                        </table>
+                                    </div>
+                                </div>                                
+                            </form>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

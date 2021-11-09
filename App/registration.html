@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Registration</title>
+    <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">    
+    <style>
+        html,
+        body {
+        height: 100%;
+        }
+        body {
+        display: flex;
+        align-items: center;
+        padding-top: 40px;
+        padding-bottom: 40px;
+        background-color: #f5f5f5;
+        font-family: 'Spartan';
+        }
+        .h3 {
+            font-weight: 700;
+        }
+        .bg-reward {
+            background: #0E1030;
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -2px rgb(0 0 0 / 5%);
+            border-radius: 20px 20px 0 0;
+            overflow: hidden;
+            }
+        .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+            color: #efd3c1;
+            background-color: #111433;
+            border-color: #dee2e6 #dee2e6 #fff;
+        }
+        .nav-link {
+            color: #121534;
+        }
+        tbody tr td {
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <div class="text-center p-5">
+                    <h1 class="h3 mb-3">Kiran Kola Patient Management</h1>
+                    <h6>Everyone is Rewarded</h6>
+                </div>
+            </div>
+            <div class="col-lg-8 offset-lg-2 bg-white">
+                <main class="form-signin px-3 py-4">
+                    <h5 class="mb-3">Admin Manager</h5>
+                    <ul class="nav nav-tabs  nav-fill" id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="patient-tab" data-bs-toggle="tab" data-bs-target="#patient" type="button"
+                                role="tab" aria-controls="patient" aria-selected="true">Patient Registration</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="requestor-tab" data-bs-toggle="tab" data-bs-target="#requestor" type="button"
+                                role="tab" aria-controls="requestor" aria-selected="false">Requestor Registration</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active py-3" id="patient" role="tabpanel"
+                            aria-labelledby="patient-tab">
+                            <form>
+                                <div class="row mb-3">
+                                    <div class="col-lg-6">
+                                        <label for="gender" class="form-label">Gender</label>
+                                        <select class="form-select" aria-label="Default select example">
+                                            <option value="1">Male</option>
+                                            <option value="2">Female</option>
+                                            <option value="3">Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <label for="age" class="form-label">Age</label>
+                                        <select class="form-select" aria-label="">
+                                            <option>1-5</option>
+                                            <option>6-10</option>
+                                            <option>11-15</option>
+                                            <option>16-20</option>
+                                            <option>21-25</option>
+                                            <option>26-30</option>
+                                            <option>31-35</option>
+                                            <option>36-40</option>
+                                            <option>41-45</option>
+                                            <option>46-50</option>
+                                            <option>51-55</option>
+                                            <option>56-60</option>
+                                            <option>61-65</option>
+                                            <option>66-70</option>
+                                            <option>71-75</option>
+                                            <option>76-80</option>
+                                            <option>81-85</option>
+                                            <option>86-90</option>
+                                            <option>91-95</option>
+                                            <option>96-100</option>
+                                            <option>Above 100</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-lg-6">
+                                        <label for="region" class="form-label">Region</label>
+                                        <input type="text" class="form-control" placeholder="City, State, Country">
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <label for="address" class="form-label">Address</label>
+                                        <input type="text" class="form-control" placeholder="Type your address here...">
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-sm btn-primary">Submit</button>
+                            </form>
+                        </div>
+                        <div class="tab-pane fade py-3" id="requestor" role="tabpanel" aria-labelledby="requestor-tab">
+                            <form>
+                                <div class="row mb-3">
+                                    <div class="col-lg-6">
+                                        <label for="requestor-type" class="form-label">Requestor Type</label>
+                                        <select class="form-select" aria-label="Default select example">
+                                            <option value="1">Company</option>
+                                            <option value="2">Doctor</option>
+                                            <option value="3">Research Student</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <label for="requestor-name" class="form-label">Requestor Name</label>
+                                        <input type="text" class="form-control" placeholder="Enter requestor full name">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-lg-6">
+                                        <label for="region" class="form-label">Region</label>
+                                        <input type="text" class="form-control" placeholder="City, State, Country">
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <label for="address" class="form-label">Address</label>
+                                        <input type="text" class="form-control" placeholder="Type your address here...">
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-sm btn-primary">Submit</button>
+                            </form>
+                        </div>
+                    </div>                    
+                </main>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
