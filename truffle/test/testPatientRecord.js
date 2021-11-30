@@ -53,10 +53,12 @@ contract("PatientRecord", function (accounts) {
       );
       const receipt = await this.PatientRecord.createMedicalRecord(
         "IPFSHASH",
-        "Memo",
+        "recordType",
         ether("0.1"),
         { from: patient2 }
       );
+      //await this.PatientRecord.getMedicalRecords(0)
+      console.log(await this.PatientRecord.getMedicalRecords(0));
       expectEvent(receipt, "medicalRecordCreated");
     });
     it("requester buys a medical record", async function () {
@@ -78,7 +80,7 @@ contract("PatientRecord", function (accounts) {
       );
       await this.PatientRecord.createMedicalRecord(
         "IPFSHASH",
-        "Memo",
+        "recordType",
         ether("0.1"),
         { from: patient2 }
       );
@@ -111,7 +113,7 @@ contract("PatientRecord", function (accounts) {
       );
       await this.PatientRecord.createMedicalRecord(
         "IPFSHASH",
-        "Memo",
+        "recordType",
         ether("0.1"),
         { from: patient2 }
       );
@@ -188,7 +190,7 @@ contract("PatientRecord", function (accounts) {
       await expectRevert(
         this.PatientRecord.createMedicalRecord(
           "IPFSHASH",
-          "Memo",
+          "recordType",
           ether("0.1"),
           {
             from: patient2,
@@ -208,9 +210,14 @@ contract("PatientRecord", function (accounts) {
       );
 
       await expectRevert(
-        this.PatientRecord.createMedicalRecord("IPFSHASH", "Memo", ether("0"), {
-          from: patient2,
-        }),
+        this.PatientRecord.createMedicalRecord(
+          "IPFSHASH",
+          "recordType",
+          ether("0"),
+          {
+            from: patient2,
+          }
+        ),
         "PatientRecord:Price is Zero"
       );
     });
@@ -232,7 +239,7 @@ contract("PatientRecord", function (accounts) {
       ); */
       await this.PatientRecord.createMedicalRecord(
         "IPFSHASH",
-        "Memo",
+        "recordType",
         ether("0.1"),
         { from: patient2 }
       );
@@ -263,7 +270,7 @@ contract("PatientRecord", function (accounts) {
       );
       await this.PatientRecord.createMedicalRecord(
         "IPFSHASH",
-        "Memo",
+        "recordType",
         ether("0.1"),
         { from: patient2 }
       );
@@ -312,7 +319,7 @@ contract("PatientRecord", function (accounts) {
       );
       await this.PatientRecord.createMedicalRecord(
         "IPFSHASH",
-        "Memo",
+        "recordType",
         ether("0.1"),
         { from: patient2 }
       );
@@ -348,7 +355,7 @@ contract("PatientRecord", function (accounts) {
       );
       await this.PatientRecord.createMedicalRecord(
         "IPFSHASH",
-        "Memo",
+        "recordType",
         ether("0.1"),
         { from: patient2 }
       );

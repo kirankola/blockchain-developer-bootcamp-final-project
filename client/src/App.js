@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import { DAppProvider, ChainId } from "@usedapp/core";
+import { Header } from "./components/Header";
+import { Container } from "@material-ui/core";
+import { Main } from "./components/Main";
 
+import { networks } from "./contracts/Multicall.json";
+//import { useEthers } from "@usedapp/core";
+//import { utils, constants } from "ethers";
 function App() {
+  //const { ChainId } = useEthers();
+
+  const multicallAddress = networks["5777"].address;
+ 
+  const config = {
+    readOnlyUrls: {
+      1337: "http://localhost:8545",
+    },
+    multicallAddresses: {
+      1337: multicallAddress,
+    },
+    supportedChains: [1337,ChainId.Rinkeby],
+  };
+
+  console.log(multicallAddress, config);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <DAppProvider config={config}>
+      <Header />
+      <Container maxWidth="md">
+        <Main />
+      </Container>
+    </DAppProvider>
   );
 }
 

@@ -37,14 +37,14 @@ contract PatientRecord is Ownable {
         uint256 id;
         string IPFShash;
         address patient;
-        string memo;
+        string recordType;
         uint256 price;
     }
 
     //** State Variables **
-    Counters.Counter public _patientsCounter;
-    Counters.Counter public _requestersCounter;
-    Counters.Counter public _medicalRecordsCounter;
+    Counters.Counter private _patientsCounter;
+    Counters.Counter private _requestersCounter;
+    Counters.Counter private _medicalRecordsCounter;
 
     mapping(address => uint256) private balance;
     mapping(address => Patient) public patients; // registering all patients
@@ -162,18 +162,18 @@ contract PatientRecord is Ownable {
 
     function createMedicalRecord(
         string memory IPFShash,
-        string memory memo,
+        string memory recordType,
         uint256 price
     ) public onlyPatient returns (uint256) {
         require(price > 0, "PatientRecord:Price is Zero");
         uint256 id = _medicalRecordsCounter.current();
-        medicalRecords[id] = MedicalRecord({
-            id: id,
-            IPFShash: IPFShash,
-            patient: _msgSender(),
-            memo: memo,
-            price: price
-        });
+        medicalRecords[id] = MedicalRecord(
+            id,
+            IPFShash,
+            msg.sender,
+            recordType,
+            price
+        );
         patientsMedicalRecords[_msgSender()].push(id);
         _medicalRecordsCounter.increment();
         emit medicalRecordCreated(_msgSender(), id);
@@ -219,4 +219,60 @@ contract PatientRecord is Ownable {
     function balanceOf(address account) public view returns (uint256) {
         return balance[account];
     }
+
+    function patientsCounter() public view returns (uint256) {
+        return _patientsCounter.current();
+    }
+
+    function requestersCounter() public view returns (uint256) {
+        return _requestersCounter.current();
+    }
+
+    function medicalRecordsCounter() public view returns (uint256) {
+        return _medicalRecordsCounter.current();
+    }
+
+    /* function getMedicalRecords() public view returns (MedicalRecord[] memory) {
+        MedicalRecord[] memory medicalRecords = new MedicalRecord[](
+            _medicalRecordsCounter.current()
+        );
+        for (uint256 i = 0; i < medicalRecords.length; i++) {
+            medicalRecords[i] = medicalRecords[i];
+        }
+        return medicalRecords;
+    } */
+
+    function getMedicalRecords() public view returns (MedicalRecord[] memory) {
+        MedicalRecord[] memory _medicalRecords = new MedicalRecord[](
+            _medicalRecordsCounter.current()
+        );
+        for (uint256 i = 0; i < _medicalRecords.length; i++) {
+            _medicalRecords[i] = medicalRecords[i];
+        }
+        return _medicalRecords;
+    }
+
+    /*     function getMedicalRecords(uint256 id)
+        public
+        view
+        returns (MedicalRecord memory)
+    {
+         MedicalRecord[] memory _medicalRecords = new MedicalRecord[](
+            _medicalRecordsCounter.current()
+        );
+        for (uint256 i = 0; i < _medicalRecords.length; i++) {
+            _medicalRecords[i] = medicalRecords[i];
+        }  
+        return medicalRecords[id];
+    } */
+
+    /*    function getMedicalRecords() public view returns (uint256) {
+        MedicalRecord[] memory medicalRecords = new MedicalRecord[](
+            _medicalRecordsCounter.current()
+        );
+        for (uint256 i = 0; i < medicalRecords.length; i++) {
+            medicalRecords[i] = medicalRecords[i];
+        }
+        return medicalRecords.length;
+    } */
 }
