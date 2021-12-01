@@ -1,3 +1,7 @@
-Inheritance and Interfaces (Importing and extending contracts and/or using contract interfaces) Inheritances and Interfaces — (note: this is already a requirement in the final project, so you can simply describe which library or interface you use)
+Design patterns Decisions
 
-Access Control Design Patterns (Restricting access to certain functions using things like Ownable, Role-based Control) Access Control Design Patterns
+Access Control Design Patterns
+The Ownable design pattern has been implemented to give only the contract owner permission to pause and unpause the contract.
+
+Inheritance and Interfaces
+patientRecord contract inherits the OpenZeppelin Ownable (Creates a single 'owner' role), 
